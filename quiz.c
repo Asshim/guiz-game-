@@ -170,7 +170,7 @@ int main()
         
         else
         {
-               printf("\n\nWrong!!! The correct answer is B.Fortran");
+               printf("\n\n\nWrong!!! The correct answer is B.Fortran");
 		       getch();
 		       system("cls");
                break;
