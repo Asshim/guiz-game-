@@ -12,7 +12,7 @@ int main()
      int countr,r,r1,count,i,n;
      float score;
      char choice;
-     char playername[20];
+     char playername[20];;
      mainhome:
      printf("\t\t\t  << QUIZ GAME >>\n");
      printf("\n\t\t****************************************");
