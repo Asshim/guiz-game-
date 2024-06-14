@@ -481,7 +481,7 @@ void help()
     printf("\n >> No negative marking for wrong answers");
 
 	printf("\n\n\t*********************BEST OF LUCK*********************************");
-	printf("\n\n\t*****C PROGRAM QUIZ GAME is developed byDEEPAK SHARMA AP GOYAL SHIMLA UNIVERSITY********");}
+	printf("\n\n\t*****C PROGRAM QUIZ GAME is developed by Ashim poudel and team ********");}
 
 void edit_score(float score, char playernm[20])
 {
