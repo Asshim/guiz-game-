@@ -127,6 +127,7 @@ int main()
         else
 	    {
 	            printf("\n\nWrong!!! The correct answer is C.byte");
+                printf("\n you got 0 point");
 		        getch();
 		        system("cls");
 		        break;
