@@ -261,6 +261,7 @@ int main()
 		if (toupper(getch())=='D')
 		{
                      printf("\n\nCorrect!!!");
+			printf("\n\nyou got 2 point")
                      countr++;
                      getch();
 			         break;
@@ -268,6 +269,7 @@ int main()
 		else
 	    {
                     printf("\n\nWrong!!! The correct answer is D.Optical disk");
+		    printf("\n\nyou got 1 point")
                     getch();
 		            goto score;
 		            break;
