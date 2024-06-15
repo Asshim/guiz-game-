@@ -138,6 +138,7 @@ int main()
 		          if (toupper(getch())=='C')
 		          {
 			        printf("\n\nCorrect!!!");
+				 printf("\n\nyou got 2 point");
                     count++;
 			        getch();
 			        system("cls");
@@ -148,6 +149,7 @@ int main()
         else
 	    {
 	            printf("\n\nWrong!!! The correct answer is C.23232");
+		    printf("\n\nyou got 1 point")
 		        getch();
 		        system("cls");
 		        break;
