@@ -116,6 +116,7 @@ int main()
 		          if (toupper(getch())=='C')
 		          {
 	           		      printf("\n\nCorrect!!!");
+                              printf("\n\nyou got 1 point");
                           count++;
 			              getch();
 			              system("cls");
