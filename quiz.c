@@ -468,7 +468,7 @@ void reset_score()
     fclose(f);
 }
 
-void help()
+void help() //Help section
 {
     system("cls");
     printf("\n\n                              HELP");
