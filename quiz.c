@@ -68,7 +68,7 @@ int main()
         printf("\n\n\n\n\n\n\n\n\n\n\t\t\tResister your name:");
         gets(playername);
 
-        system("cls");
+	     system("cls");
         printf("\n ********* Welcome %s to C Program Quiz Game ***************",playername);
         printf("\n\n Here are some tips you might wanna know before playing:");
         printf("\n ******************************************************************************");
@@ -86,6 +86,7 @@ int main()
         printf("\n\n\t!!!!!!!!!!!!! ALL THE BEST !!!!!!!!!!!!!");
         printf("\n\n\n Press Y  to start the game!\n");
         printf("\n Press any other key to return to the main menu!");
+    
     
        if (toupper(getch())=='Y')
 		{
