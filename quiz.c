@@ -1,4 +1,4 @@
-#include<stdio.h>
+e#include<stdio.h>
 #include<conio.h>
 #include<ctype.h>
 #include<stdlib.h>
@@ -105,9 +105,8 @@ int main()
      system("cls");
      count=0;
      
-     
      for(i=1;i<=3;i++)
-     {
+     {  //Eligibility test
         r1=i;
         switch(r1)
         {
@@ -203,10 +202,10 @@ int main()
      printf("\n\n\n\n\t!Press any key to Start the Game!");
      if(toupper(getch())=='p')
      {
-                              goto game;
+                              goto game; 
      }
      
-     
+     // start the game 
      game:
      countr=0;
      for(i=1;i<=10;i++)
