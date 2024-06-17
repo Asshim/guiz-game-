@@ -1,4 +1,4 @@
-e#include<stdio.h>
+#include<stdio.h>
 #include<conio.h>
 #include<ctype.h>
 #include<stdlib.h>
