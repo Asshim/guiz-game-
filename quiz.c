@@ -30,14 +30,6 @@ void displayMainMenu(Quiz *quiz);
 int main() {
     Quiz quiz;
     quiz.count = 0;
-
-    displayMainMenu(&quiz);
-    int rolechoice;
-    printf("     quiz game system");
-    printf("|| =====================================||\n");
-    printf("||  Home Page      ||\n");
-    
-
     return 0;
 }
 
