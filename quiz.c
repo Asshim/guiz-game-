@@ -2,104 +2,211 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define the maximum number of books
-#define MAX_Question 100
-#define ADMIN_USERNAME "admin"
-#define ADMIN_PASSWORD "password"
+#define MAX_QUESTIONS 100
+#define MAX_LENGTH 256
+#define ADMIN_USERNAME"admin"
+#define ADMIN_PASSWORD"password"
 
-// Define the structure for a Question
 typedef struct {
-    int Question ;
-    char question[100];
-    char answer[100];
-    int Option;
-    
- 
+    char question[MAX_LENGTH];
+    char options[4][MAX_LENGTH];
+    char correctOption;
 } Question;
 
-// Declare the Question
- array and count
-question question[MAX_Question];
-int QuestionCount = 0;
+typedef struct {
+    Question questions[MAX_QUESTIONS];
+    int count;
+} Quiz;
 
-// Function prototypes
-void displayHomePage();
-void displayAdminMenu();
-void displayUserMenu();
-void addQuestion();
-void viewQuestion();
-void updateQuestion();
-void deleteBook();
-int findQuestionByQuestion(int Question);
+void addQuestion(Quiz *quiz);
+void editQuestion(Quiz *quiz);
+void deleteQuestion(Quiz *quiz);
+void displayAdminMenu(Quiz *quiz);
 int adminLogin();
-void userViewQuestion();
-void adminProcess();
+void displayPlayerMenu(Quiz *quiz);
+void takeQuiz(Quiz *quiz);
+void displayMainMenu(Quiz *quiz);
 
 int main() {
-    while (1) {
-        displayHomePage();
-    }
+    Quiz quiz;
+    quiz.count = 0;
+
+    displayMainMenu(&quiz);
+    int rolechoice;
+    printf("     quiz game system");
+    printf("|| =====================================||\n");
+    printf("||  Home Page      ||\n");
+    
+
     return 0;
 }
 
-void displayHomePage() {
-    int roleChoice;
-    printf("                Quiz game  System\n");
-	printf("||==============================================================||\n");
-	printf("||            		Home Page                               	||\n");
-	printf("||              Your role:                        		    	||\n");
-    printf("||         1.Admin                              			 	||\n");
-    printf("||         2.User                                 		 		||\n");
-	printf("||         3.Exit                                         		||\n");
-	printf("||         Enter your choice:                           		||\n");
-	printf("||==============================================================||\n\n");
-    scanf("%d", &roleChoice);
-    if (roleChoice == 1) {
-        if (adminLogin() == 1) {
-            adminProcess();
-        } else {
-            printf("Invalid username or password.\n");
-        }
-    } else if (roleChoice == 2) {    int id;
-    printf("Enter Question ID to delete: ");
-    scanf("%d", &id);
-
-    int index = findQuestionById(id);
-    if (index != -1) {
-        for (int i = index; i < QuestionCount - 1; i++) {
-            Question[i] = Question[i + 1];
-        }
-        bookCount--;
-        printf("Question deleted successfully.\n");
-    } else {
-        printf("Question not found.\n");
+void addQuestion(Quiz *quiz) {
+    if (quiz->count >= MAX_QUESTIONS) {
+        printf("Question limit reached!\n");
+        return;
     }
+
+    Question q;
+    printf("Enter the question: ");
+    getchar();  // to consume the newline character left by the previous input
+    fgets(q.question, MAX_LENGTH, stdin);
+    q.question[strcspn(q.question, "\n")] = 0;  // Remove the newline character
+
+    for (int i = 0; i < 4; i++) {
+        printf("Enter option %c: ", 'A' + i);
+        fgets(q.options[i], MAX_LENGTH, stdin);
+        q.options[i][strcspn(q.options[i], "\n")] = 0;  // Remove the newline character
+    }
+
+    printf("Enter the correct option (A, B, C, or D): ");
+    scanf(" %c", &q.correctOption);
+
+    quiz->questions[quiz->count++] = q;
+    printf("Question added successfully!\n");
 }
 
-int findQuestionById(int id) {
-    for (int i = 0; i < QuestionCount; i++) {
-        if (Question[i].id == id) {
-            return i;
-        }
+void editQuestion(Quiz *quiz) {
+    int index;
+    printf("Enter the question number to edit: ");
+    scanf("%d", &index);
+
+    if (index < 1 || index > quiz->count) {
+        printf("Invalid question number!\n");
+        return;
     }
-    return -1;
+
+    Question *q = &quiz->questions[index - 1];
+    printf("Editing question %d:\n", index);
+    printf("Enter the new question: ");
+    getchar();  // to consume the newline character left by the previous input
+    fgets(q->question, MAX_LENGTH, stdin);
+    q->question[strcspn(q->question, "\n")] = 0;  // Remove the newline character
+
+    for (int i = 0; i < 4; i++) {
+        printf("Enter new option %c: ", 'A' + i);
+        fgets(q->options[i], MAX_LENGTH, stdin);
+        q->options[i][strcspn(q->options[i], "\n")] = 0;  // Remove the newline character
+    }
+
+    printf("Enter the new correct option (A, B, C, or D): ");
+    scanf(" %c", &q->correctOption);
+
+    printf("Question edited successfully!\n");
 }
 
-void userViewQuestion() {
+void deleteQuestion(Quiz *quiz) {
+    int index;
+    printf("Enter the question number to delete: ");
+    scanf("%d", &index);
+
+    if (index < 1 || index > quiz->count) {
+        printf("Invalid question number!\n");
+        return;
+    }
+
+    for (int i = index - 1; i < quiz->count - 1; i++) {
+        quiz->questions[i] = quiz->questions[i + 1];
+    }
+
+    quiz->count--;
+    printf("Question deleted successfully!\n");
+}
+
+void displayAdminMenu(Quiz *quiz) {
     int choice;
     do {
-        displayUserMenu();
+        printf("\nAdmin Menu:\n");
+        printf("1. Add Question\n");
+        printf("2. Edit Question\n");
+        printf("3. Delete Question\n");
+        printf("4. Back to Main Menu\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
+
         switch (choice) {
             case 1:
-                viewQuestion();
+                addQuestion(quiz);
                 break;
             case 2:
-                printf("Logging out...\n");
-                return;
+                editQuestion(quiz);
+                break;
+            case 3:
+                deleteQuestion(quiz);
+                break;
+            case 4:
+                printf("Returning to Main Menu...\n");
+                break;
             default:
-                printf("Invalid choice. Please try again.\n");
+                printf("Invalid choice! Please try again.\n");
         }
-    } while (1);
+    } while (choice != 4);
+}
+
+void takeQuiz(Quiz *quiz) {
+    int score = 0;
+    char answer;
+
+    for (int i = 0; i < quiz->count; i++) {
+        printf("\nQuestion %d: %s\n", i + 1, quiz->questions[i].question);
+        for (int j = 0; j < 4; j++) {
+            printf("%c. %s\n", 'A' + j, quiz->questions[i].options[j]);
+        }
+        printf("Your answer: ");
+        scanf(" %c", &answer);
+
+        if (answer == quiz->questions[i].correctOption) {
+            score++;
+        }
+    }
+
+    printf("\nQuiz completed! Your score: %d/%d\n", score, quiz->count);
+}
+
+void displayPlayerMenu(Quiz *quiz) {
+    int choice;
+    do {
+        printf("\nPlayer Menu:\n");
+        printf("1. Take Quiz\n");
+        printf("2. Back to Main Menu\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                takeQuiz(quiz);
+                break;
+            case 2:
+                printf("Returning to Main Menu...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    } while (choice != 2);
+}
+
+void displayMainMenu(Quiz *quiz) {
+    int choice;
+    do {
+        printf("\nMain Menu:\n");
+        printf("1. Admin Section\n");
+        printf("2. Player Section\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                displayAdminMenu(quiz);
+                break;
+            case 2:
+                displayPlayerMenu(quiz);
+                break;
+            case 3:
+                printf("Exiting the program...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    } while (choice != 3);
 }
