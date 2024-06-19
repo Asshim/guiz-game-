@@ -26,7 +26,7 @@ int adminLogin();
 void displayPlayerMenu(Quiz *quiz);
 void takeQuiz(Quiz *quiz);
 void displayMainMenu(Quiz *quiz);
-
+//main menu enter
 int main() {
     Quiz quiz;
     quiz.count = 0;
