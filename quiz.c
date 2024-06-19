@@ -60,6 +60,7 @@ void addQuestion(Quiz *quiz) {
 }
 
 void editQuestion(Quiz *quiz) {
+    //edit question
     int index;
     printf("Enter the question number to edit: ");
     scanf("%d", &index);
@@ -89,6 +90,7 @@ void editQuestion(Quiz *quiz) {
 }
 
 void deleteQuestion(Quiz *quiz) {
+    //delete question
     int index;
     printf("Enter the question number to delete: ");
     scanf("%d", &index);
@@ -107,6 +109,7 @@ void deleteQuestion(Quiz *quiz) {
 }
 
 void displayAdminMenu(Quiz *quiz) {
+    //admin menu enter
     int choice;
     do {
         printf("\nAdmin Menu:\n");
@@ -157,6 +160,7 @@ void takeQuiz(Quiz *quiz) {
 }
 
 void displayPlayerMenu(Quiz *quiz) {
+    //player menu enter
     int choice;
     do {
         printf("\nPlayer Menu:\n");
@@ -179,6 +183,7 @@ void displayPlayerMenu(Quiz *quiz) {
 }
 
 void displayMainMenu(Quiz *quiz) {
+    //main menu enter
     int choice;
     do {
         printf("\nMain Menu:\n");
