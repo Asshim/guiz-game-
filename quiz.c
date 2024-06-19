@@ -34,6 +34,7 @@ int main() {
 }
 
 void addQuestion(Quiz *quiz) {
+    //add questoions
     if (quiz->count >= MAX_QUESTIONS) {
         printf("Question limit reached!\n");
         return;
@@ -201,4 +202,5 @@ void displayMainMenu(Quiz *quiz) {
                 printf("Invalid choice! Please try again.\n");
         }
     } while (choice != 3);
-}
+}   
+ 
