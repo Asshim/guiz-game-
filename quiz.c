@@ -45,7 +45,7 @@ void addQuestion(Quiz *quiz) {
     fgets(q.question, MAX_LENGTH, stdin);
     q.question[strcspn(q.question, "\n")] = 0;  // Remove the newline character
 
-    for (int i = 0; i < 4; i++) {
+    for (i= 0; i<4; i++) {
         printf("Enter option %c: ", 'A' + i);
         fgets(q.options[i], MAX_LENGTH, stdin);
         q.options[i][strcspn(q.options[i], "\n")] = 0;  // Remove the newline character
