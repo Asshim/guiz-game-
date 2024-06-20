@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+//Define maximum number of question
 #define MAX_QUESTIONS 100
 #define MAX_LENGTH 256
-
+//Define the structure for a question
 typedef struct {
     char question[MAX_LENGTH];
     char options[4][MAX_LENGTH];
@@ -15,7 +15,7 @@ typedef struct {
     Question questions[MAX_QUESTIONS];
     int count;
 } Quiz;
-
+//function 
 void addQuestion(Quiz *quiz);
 void editQuestion(Quiz *quiz);
 void deleteQuestion(Quiz *quiz);
@@ -202,5 +202,3 @@ void displayMainMenu(Quiz *quiz) {
         }
     } while (choice != 3);
 }
-
-
