@@ -27,7 +27,7 @@ void displayMainMenu(Quiz *quiz);
 int main() {
     Quiz quiz;
     quiz.count = 0;
-
+//main menu 
     displayMainMenu(&quiz);
 
     return 0;
