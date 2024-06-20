@@ -75,7 +75,7 @@ void editQuestion(Quiz *quiz) {
     fgets(q->question, MAX_LENGTH, stdin);
     q->question[strcspn(q->question, "\n")] = 0;  // Remove the newline character
 
-    for (int i = 0; i < 4; i++) {
+    for (i = 0; i < 4; i++) {
         printf("Enter new option %c: ", 'A' + i);
         fgets(q->options[i], MAX_LENGTH, stdin);
         q->options[i][strcspn(q->options[i], "\n")] = 0;  // Remove the newline character
@@ -97,7 +97,7 @@ void deleteQuestion(Quiz *quiz) {
         return;
     }
 
-    for (int i = index - 1; i < quiz->count - 1; i++) {
+    for (i = index - 1; i < quiz->count - 1; i++) {
         quiz->questions[i] = quiz->questions[i + 1];
     }
 
@@ -139,7 +139,7 @@ void takeQuiz(Quiz *quiz) {
     int score = 0;
     char answer;
 
-    for (int i = 0; i < quiz->count; i++) {
+    for ( i = 0; i < quiz->count; i++) {
         printf("\nQuestion %d: %s\n", i + 1, quiz->questions[i].question);
         for (int j = 0; j < 4; j++) {
             printf("%c. %s\n", 'A' + j, quiz->questions[i].options[j]);
