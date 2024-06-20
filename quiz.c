@@ -4,8 +4,6 @@
 
 #define MAX_QUESTIONS 100
 #define MAX_LENGTH 256
-#define ADMIN_USERNAME"admin"
-#define ADMIN_PASSWORD"password"
 
 typedef struct {
     char question[MAX_LENGTH];
@@ -22,19 +20,20 @@ void addQuestion(Quiz *quiz);
 void editQuestion(Quiz *quiz);
 void deleteQuestion(Quiz *quiz);
 void displayAdminMenu(Quiz *quiz);
-int adminLogin();
 void displayPlayerMenu(Quiz *quiz);
 void takeQuiz(Quiz *quiz);
 void displayMainMenu(Quiz *quiz);
-//main menu enter
+
 int main() {
     Quiz quiz;
     quiz.count = 0;
+
+    displayMainMenu(&quiz);
+
     return 0;
 }
 
 void addQuestion(Quiz *quiz) {
-    //add questoions
     if (quiz->count >= MAX_QUESTIONS) {
         printf("Question limit reached!\n");
         return;
@@ -60,7 +59,6 @@ void addQuestion(Quiz *quiz) {
 }
 
 void editQuestion(Quiz *quiz) {
-    //edit question
     int index;
     printf("Enter the question number to edit: ");
     scanf("%d", &index);
@@ -90,7 +88,6 @@ void editQuestion(Quiz *quiz) {
 }
 
 void deleteQuestion(Quiz *quiz) {
-    //delete question
     int index;
     printf("Enter the question number to delete: ");
     scanf("%d", &index);
@@ -109,7 +106,6 @@ void deleteQuestion(Quiz *quiz) {
 }
 
 void displayAdminMenu(Quiz *quiz) {
-    //admin menu enter
     int choice;
     do {
         printf("\nAdmin Menu:\n");
@@ -160,7 +156,6 @@ void takeQuiz(Quiz *quiz) {
 }
 
 void displayPlayerMenu(Quiz *quiz) {
-    //player menu enter
     int choice;
     do {
         printf("\nPlayer Menu:\n");
@@ -183,7 +178,6 @@ void displayPlayerMenu(Quiz *quiz) {
 }
 
 void displayMainMenu(Quiz *quiz) {
-    //main menu enter
     int choice;
     do {
         printf("\nMain Menu:\n");
@@ -207,5 +201,6 @@ void displayMainMenu(Quiz *quiz) {
                 printf("Invalid choice! Please try again.\n");
         }
     } while (choice != 3);
-}   
- 
+}
+
+
