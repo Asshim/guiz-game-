@@ -15,7 +15,7 @@ typedef struct {
     Question questions[MAX_QUESTIONS];
     int count;
 } Quiz;
-//function 
+//function Decleration
 void addQuestion(Quiz *quiz);
 void editQuestion(Quiz *quiz);
 void deleteQuestion(Quiz *quiz);
@@ -33,7 +33,7 @@ int main() {
 
     return 0;
 }
-
+// add Question
 void addQuestion(Quiz *quiz) {
     if (quiz->count >= MAX_QUESTIONS) {
         printf("Question limit reached!\n");
@@ -58,7 +58,7 @@ void addQuestion(Quiz *quiz) {
     quiz->questions[quiz->count++] = q;
     printf("Question added successfully!\n");
 }
-
+//Edit question
 void editQuestion(Quiz *quiz) {
     int index;
     printf("Enter the question number to edit: ");
@@ -87,7 +87,7 @@ void editQuestion(Quiz *quiz) {
 
     printf("Question edited successfully!\n");
 }
-
+// Delete question
 void deleteQuestion(Quiz *quiz) {
     int index;
     printf("Enter the question number to delete: ");
@@ -105,7 +105,7 @@ void deleteQuestion(Quiz *quiz) {
     quiz->count--;
     printf("Question deleted successfully!\n");
 }
-
+//Display admin menu
 void displayAdminMenu(Quiz *quiz) {
     int choice;
     do {
@@ -155,7 +155,7 @@ void takeQuiz(Quiz *quiz) {
 
     printf("\nQuiz completed! Your score: %d/%d\n", score, quiz->count);
 }
-
+// Display player menu
 void displayPlayerMenu(Quiz *quiz) {
     int choice;
     do {
@@ -177,7 +177,7 @@ void displayPlayerMenu(Quiz *quiz) {
         }
     } while (choice != 2);
 }
-
+// Display main menu
 void displayMainMenu(Quiz *quiz) {
     int choice;
     do {
