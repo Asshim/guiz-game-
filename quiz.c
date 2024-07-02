@@ -9,7 +9,7 @@
 #define QUESTION_FILE "questions.dat"
 #define TEXT_FILE "save/questions.txt"
 #define SCORE_FILE "scores.dat"
-
+//
 typedef struct {
     char question[MAX_LENGTH];
     char options[4][MAX_LENGTH];
