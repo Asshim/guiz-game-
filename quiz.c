@@ -89,7 +89,7 @@ void displayHomePage(Quiz *quiz) {//enter home page
     }
 }
 
-void displayAdminMenu()//enter admin section {
+void displayAdminMenu(){//enter admin section 
     printf("!!================================================================!!\n");
     printf("||             Admin Menu                                        ||\n");
     printf("||             1. Add Question                                   ||\n");
