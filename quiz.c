@@ -1,3 +1,4 @@
+//quiz game
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -58,8 +59,8 @@ int main() {
     return 0;
 }
 
-void displayHomePage(Quiz *quiz) {
-    int roleChoice;
+void displayHomePage(Quiz *quiz) {//enter home page
+    introleChoice;
     printf("                QUIZ Game System\n");
     printf("||===============================================================||\n");
     printf("||                Home Page                                      ||\n");
@@ -88,7 +89,7 @@ void displayHomePage(Quiz *quiz) {
     }
 }
 
-void displayAdminMenu() {
+void displayAdminMenu()//enter admin section {
     printf("!!================================================================!!\n");
     printf("||             Admin Menu                                        ||\n");
     printf("||             1. Add Question                                   ||\n");
@@ -108,7 +109,7 @@ void displayUserMenu() {
     printf("||===================||\n");
 }
 
-int adminLogin() {
+int adminLogin()//admin login page {
     char username[50];
     char password[50];
 
