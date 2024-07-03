@@ -58,7 +58,7 @@ int main() {
 
     return 0;
 }
-
+//homepage
 void displayHomePage(Quiz *quiz) {//enter home page
     introleChoice;
     printf("                QUIZ Game System\n");
