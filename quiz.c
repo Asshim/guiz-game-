@@ -16,7 +16,7 @@ typedef struct {
     char options[4][MAX_LENGTH];
     char correctOption;
 } Question;
-//
+////
 typedef struct {
     Question questions[MAX_QUESTIONS];
     int count;
