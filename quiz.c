@@ -27,7 +27,7 @@ typedef struct {
     int score;
 } UserScore;
 //
-// Function prototypes
+// Function declaration 
 void displayHomePage(Quiz *quiz);
 void displayAdminMenu();
 void displayUserMenu();
