@@ -26,7 +26,7 @@ typedef struct {
     char username[MAX_LENGTH];
     int score;
 } UserScore;
-
+//
 // Function prototypes
 void displayHomePage(Quiz *quiz);
 void displayAdminMenu();
