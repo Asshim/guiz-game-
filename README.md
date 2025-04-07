@@ -1,1 +1,1 @@
-# guiz-game-
+# Quiz-game-
